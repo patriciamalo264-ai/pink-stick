@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pink Stick — SPF 50+ Sunscreen for Athletes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink-50: #FBEAF0;
+      --pink-100: #F4C0D1;
+      --pink-200: #ED93B1;
+      --pink-400: #D4537E;
+      --pink-600: #993556;
+      --pink-800: #72243E;
+      --pink-900: #4B1528;
+      --white: #ffffff;
+      --text: #1a1a1a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--pink-100);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--pink-800);
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--pink-600);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--pink-800); }
+
+    .nav-cta {
+      background: var(--pink-400);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-weight: 500 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--pink-600) !important; color: var(--white) !important; }
+
+    /* HERO */
+    .hero {
+      background: var(--pink-50);
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 48px;
+      gap: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: var(--pink-100);
+      right: -100px;
+      top: -100px;
+      opacity: 0.4;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--pink-100);
+      color: var(--pink-800);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.1;
+      color: var(--pink-900);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--pink-400);
+    }
+
+    .hero p {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--pink-600);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--pink-400);
+      color: var(--white);
+      border: none;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--pink-600); transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--pink-600);
+      border: 1.5px solid var(--pink-200);
+      padding: 13px 28px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover { border-color: var(--pink-400); color: var(--pink-800); }
+
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-stick {
+      width: 100px;
+      height: 240px;
+      background: var(--pink-400);
+      border-radius: 50px;
+      position: relative;
+      box-shadow: 8px 16px 40px rgba(212,83,126,0.25);
+    }
+
+    .product-stick::before {
+      content: 'PINK STICK';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      font-family: 'DM Serif Display', serif;
+      font-size: 11px;
+      color: var(--pink-100);
+      letter-spacing: 3px;
+      white-space: nowrap;
+    }
+
+    .product-stick::after {
+      content: 'SPF 50+';
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--pink-200);
+      letter-spacing: 1px;
+    }
+
+    .product-cap {
+      width: 100px;
+      height: 56px;
+      background: var(--pink-800);
+      border-radius: 50px 50px 0 0;
+      position: absolute;
+      top: -40px;
+    }
+
+    .hero-stat {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid var(--pink-100);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 13px;
+    }
+
+    .hero-stat strong { display: block; font-size: 20px; font-weight: 500; color: var(--pink-800); }
+    .hero-stat span { color: var(--pink-600); font-weight: 300; }
+
+    .stat-1 { bottom: 20px; left: 10%; }
+    .stat-2 { top: 15%; right: 5%; }
+
+    /* SECTION SHARED */
+    section { padding: 80px 48px; }
+    .section-label { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: var(--pink-400); margin-bottom: 12px; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 3vw, 40px); color: var(--pink-900); margin-bottom: 48px; line-height: 1.2; }
+
+    /* BENEFITS */
+    .benefits { background: var(--white); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .benefit-card {
+      background: var(--pink-50);
+      border: 1px solid var(--pink-100);
+      border-radius: 20px;
+      padding: 32px 28px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .benefit-card:hover { transform: translateY(-4px); border-color: var(--pink-200); }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--pink-100);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .benefit-icon svg { width: 24px; height: 24px; stroke: var(--pink-600); fill: none; stroke-width: 1.5; }
+    .benefit-card h3 { font-size: 17px; font-weight: 500; color: var(--pink-800); margin-bottom: 8px; }
+    .benefit-card p { font-size: 14px; color: var(--pink-600); line-height: 1.6; font-weight: 300; }
+
+    /* HOW TO USE */
+    .how { background: var(--pink-50); }
+    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; position: relative; }
+
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: calc(16.66% + 12px);
+      right: calc(16.66% + 12px);
+      height: 1px;
+      background: var(--pink-200);
+    }
+
+    .how-step { text-align: center; }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--pink-400);
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-step h3 { font-size: 16px; font-weight: 500; color: var(--pink-800); margin-bottom: 8px; }
+    .how-step p { font-size: 14px; color: var(--pink-600); line-height: 1.6; font-weight: 300; }
+
+    /* TESTIMONIALS */
+    .reviews { background: var(--white); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+    .review-card {
+      background: var(--pink-50);
+      border: 1px solid var(--pink-100);
+      border-radius: 20px;
+      padding: 28px;
+    }
+
+    .stars { color: var(--pink-400); font-size: 14px; margin-bottom: 12px; }
+    .review-card blockquote { font-size: 15px; color: var(--pink-800); line-height: 1.7; font-weight: 300; margin-bottom: 16px; font-style: italic; }
+    .reviewer { font-size: 13px; color: var(--pink-600); font-weight: 500; }
+    .reviewer span { font-weight: 300; }
+
+    /* PRODUCT / BUY */
+    .buy { background: var(--pink-50); }
+    .buy-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .buy-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .buy-stick-wrap {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .buy-stick {
+      width: 120px;
+      height: 280px;
+      background: var(--pink-400);
+      border-radius: 60px;
+      position: relative;
+    }
+
+    .buy-stick::before {
+      content: 'PINK STICK';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      font-family: 'DM Serif Display', serif;
+      font-size: 13px;
+      color: var(--pink-100);
+      letter-spacing: 4px;
+      white-space: nowrap;
+    }
+
+    .buy-cap {
+      width: 120px;
+      height: 64px;
+      background: var(--pink-800);
+      border-radius: 60px 60px 0 0;
+    }
+
+    .buy-info h2 { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--pink-900); margin-bottom: 8px; }
+    .buy-info .subtitle { font-size: 15px; color: var(--pink-600); font-weight: 300; margin-bottom: 28px; }
+
+    .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+    .price { font-family: 'DM Serif Display', serif; font-size: 44px; color: var(--pink-800); }
+    .price-note { font-size: 13px; color: var(--pink-600); font-weight: 300; }
+    .shipping-note { font-size: 13px; color: var(--pink-400); margin-bottom: 32px; }
+
+    .buy-btn {
+      width: 100%;
+      background: var(--pink-400);
+      color: var(--white);
+      border: none;
+      padding: 16px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 12px;
+    }
+
+    .buy-btn:hover { background: var(--pink-600); transform: translateY(-1px); }
+
+    .trust-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+    .trust-item { font-size: 12px; color: var(--pink-600); display: flex; align-items: center; gap: 6px; }
+    .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pink-400); }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: var(--pink-800);
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--pink-50);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .cta-banner h2 em { color: var(--pink-200); font-style: italic; }
+    .cta-banner p { font-size: 16px; color: var(--pink-200); font-weight: 300; margin-bottom: 36px; }
+
+    .btn-light {
+      background: var(--pink-50);
+      color: var(--pink-800);
+      border: none;
+      padding: 14px 36px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-light:hover { background: var(--pink-100); }
+
+    /* FOOTER */
+    footer {
+      background: var(--pink-900);
+      padding: 40px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--pink-100);
+    }
+
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--pink-200); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--pink-50); }
+    .footer-copy { font-size: 12px; color: var(--pink-600); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      section { padding: 56px 24px; }
+      .hero { grid-template-columns: 1fr; padding: 56px 24px; min-height: auto; gap: 48px; }
+      .hero::before { display: none; }
+      .hero-visual { order: -1; }
+      .hero-stat { display: none; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+      .how-steps::before { display: none; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .buy-inner { grid-template-columns: 1fr; }
+      .buy-visual { order: -1; }
+      footer { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
+      .cta-banner { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Pink Stick</a>
+    <ul class="nav-links">
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#how">How to use</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#buy" class="nav-cta">Shop now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-badge">SPF 50+ · Sweat-resistant</span>
+      <h1>Protection that keeps up <em>with you</em></h1>
+      <p>The sunscreen stick made for athletes who never stop. Lightweight, non-greasy, fits in your pocket.</p>
+      <div class="hero-buttons">
+        <a href="#buy" class="btn-primary">Shop now</a>
+        <a href="#how" class="btn-secondary">How it works</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div style="position:relative; display:flex; flex-direction:column; align-items:center;">
+        <div class="product-cap"></div>
+        <div class="product-stick"></div>
+        <div class="hero-stat stat-1">
+          <strong>SPF 50+</strong>
+          <span>Full UVA & UVB</span>
+        </div>
+        <div class="hero-stat stat-2">
+          <strong>15g</strong>
+          <span>Pocket-sized</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits" id="benefits">
+    <p class="section-label">Why Pink Stick</p>
+    <h2 class="section-title">Built for athletes,<br>not beach days</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M7 14s1.5 2 5 2 5-2 5-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Sweat-resistant formula</h3>
+        <p>Stays put through your hardest workouts. No dripping into your eyes, no white streaks on your skin.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <h3>Pocket-sized stick</h3>
+        <p>Toss it in your jersey pocket, gym bag, or sports bra. Reapply anywhere, no mess, no hands.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
+        <h3>SPF 50+ protection</h3>
+        <p>Full broad-spectrum UVA and UVB coverage. Because serious athletes train in serious sun.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="how" id="how">
+    <p class="section-label">How to use</p>
+    <h2 class="section-title">Three steps.<br>No excuses.</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <h3>Twist the base</h3>
+        <p>Rotate the bottom to push up the product. No cap fumbling before a race.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <h3>Apply directly</h3>
+        <p>Glide directly onto skin — face, neck, shoulders, anywhere exposed.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <h3>Reapply every 2h</h3>
+        <p>Bring it with you. Reapply every two hours of sun exposure or after heavy sweating.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <p class="section-label">Reviews</p>
+    <h2 class="section-title">What athletes are saying</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Finally a sunscreen that doesn't drip into my eyes mid-run. I've tried everything. This is the one."</blockquote>
+        <p class="reviewer">Ana R. <span>— trail runner</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Keep it clipped to my cycling bag. Reapplying on the road without getting my hands greasy is a game changer."</blockquote>
+        <p class="reviewer">Mariana S. <span>— cyclist</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I train outdoors six days a week. Pink Stick is the only sunscreen I've been able to stick with consistently."</blockquote>
+        <p class="reviewer">Camila T. <span>— crossfit athlete</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Lightweight, no white cast, no greasy feeling. And it actually stays on during open-water swims."</blockquote>
+        <p class="reviewer">Juliana M. <span>— triathlete</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUY -->
+  <section class="buy" id="buy">
+    <div class="buy-inner">
+      <div class="buy-visual">
+        <div class="buy-stick-wrap">
+          <div class="buy-cap"></div>
+          <div class="buy-stick"></div>
+        </div>
+      </div>
+      <div class="buy-info">
+        <p class="section-label">Get yours</p>
+        <h2>Pink Stick original</h2>
+        <p class="subtitle">SPF 50+ sunscreen stick · 15g · water & sweat resistant</p>
+        <div class="price-row">
+          <span class="price">$12.99</span>
+          <span class="price-note">per stick</span>
+        </div>
+        <p class="shipping-note">Free shipping on orders over $50</p>
+        <button class="buy-btn">Add to cart</button>
+        <div class="trust-row">
+          <span class="trust-item"><span class="trust-dot"></span>Secure checkout</span>
+          <span class="trust-item"><span class="trust-dot"></span>Easy returns</span>
+          <span class="trust-item"><span class="trust-dot"></span>Ships worldwide</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <h2>Ready to train <em>protected?</em></h2>
+    <p>Join thousands of athletes who never skip sunscreen anymore.</p>
+    <a href="#buy" class="btn-light">Shop Pink Stick</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Pink Stick</span>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Contact</a>
+      <a href="#">Shipping policy</a>
+      <a href="#">Return policy</a>
+    </div>
+    <span class="footer-copy">© 2025 Pink Stick. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>
